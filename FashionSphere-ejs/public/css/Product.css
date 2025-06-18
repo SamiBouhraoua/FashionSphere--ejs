@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #cecece;
+    border-bottom: 1px solid #ddd;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.header_logo {
+    height: 50px;
+    border-radius: 50%;
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.FashionSphere {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin-right: auto;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    gap: 50px;
+    margin-right: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.navbar a:hover {
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    min-width: 150px;
+    padding: 9px;
+}
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+.dropdown-content a:hover {
+    background-color: #9d9d9d;
+    color: #fff;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.men-item {
+    position: relative;
+    text-align: center;
+}
+
+.overlay {
+    position: relative;
+}
+
+.men-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.men-item h2 {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 40px;
+}
+
+
+
+
+.h2p {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+    margin: 50px;
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* all items*/
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 éléments par ligne */
+    gap: 20px;
+    padding: 20px;
+    margin: 0 30px 0 50px;
+}
+
+.product-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.shop-now-btn {
+    background-color: #ff2f2f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.shop-now-btn:hover {
+    background-color: #ff4e4e;
+    transform: translateY(-2px);
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: 20px auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2em;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body class="background">
+
+    <section class="logo-section">
+        <img src="/image/img.png" class="logo">
+        <h2>Sing up to FashionSphere</h2>
+    </section>
+
+    <section class="section">
+        <form action="/login" method="post">
+            <label for="Username">Username</label> <br>
+            <input type="text" name="Username" id="Username"  required> <br><br>
+
+            <label for="Password">Password</label> <br>
+            <input type="password" name="Password" id="Password"  required> <br><br>
+
+            <div class="message">
+                <% if (errorMessage) { %>
+                    <p class="error-message"><%= errorMessage %></p>
+                <% } %>
+            </div>            
+
+            <input type="submit" class="button0" value="Login">
+        </form>
+    </section>
+
+    <section class="section-extra">
+        <p>Create a new account or access the admin area. </p>
+        <div class="actions">
+            <a href="/register" class="button1">Register</a>
+            <a href="/loginadmin" class="button1">Admin area</a>
+        </div>
+    </section>
+
+</body>
+</html>

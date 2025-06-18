@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Édition de l'utilisateur</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/Edit_user.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/image/img.png" class="header_logo" alt="FashionSphere Logo">
+            <span class="FashionSphere">FashionSphere</span>
+            <nav class="navbar">
+                <a href="/Admins"><i class="fas fa-user-shield"></i> Admin</a>
+                <a href="/Users"><i class="fas fa-users"></i> Users</a>
+                <a href="/Products"><i class="fas fa-box-open"></i> Products</a>
+                <a href="/login"><i class="fas fa-sign-in-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="edit-user">
+        <div class="edit-user-form">
+            <h2>Édition de l'admin</h2>
+            <form action="/Admins/<%= admin._id %>?_method=PUT" method="POST">
+            
+                <label for="Username">Nom d'utilisateur :</label><br>
+                <input type="text" name="Username" value="<%= admin.Username %>" required><br><br>
+            
+                <label for="Password">Mot de passe :</label><br>
+                <input type="password" name="Password" value="<%= admin.Password %>" required><br><br>
+            
+                <button type="submit" name="edit">Mettre à jour</button>
+            </form>            
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du produit</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/details.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/image/img.png" class="header_logo" alt="FashionSphere Logo">
+            <span class="FashionSphere">FashionSphere</span>
+            <nav class="navbar">
+                <a href="/Home"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-box-open"></i> Product</a>
+                    <div class="dropdown-content">
+                        <a href="/mens">Men's Wear</a>
+                        <a href="/womens">Women's Wear</a>
+                        <a href="/accessories">Accessories</a>
+                    </div>
+                </div>
+                <a href="/cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="product-details">
+        <% if (product) { %>
+            <div class="product-detail-item">
+                <img src="/image/<%= product.Photo %>" alt="Product Image">
+                <h2><%= product.Titre %></h2>
+                <p><%= product.Description %></p>
+                <p>Prix: <%= product.Prix %> $</p>
+                <p>Catégorie: <%= product.Categorie %></p>
+                <p>Taille: <%= product.Taille %></p>
+                <p>Stock disponible: <%= product.Stock %></p>
+                <form action="/cart" method="POST" class="add-to-cart-form">
+                    <div class="quantity-selector">
+                        <button type="button" class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="<%= product.Stock %>" required>
+                        <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    <input type="hidden" name="productId" value="<%= product._id %>">
+                    <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                </form>
+            </div>
+        <% } %>
+    </section>
+
+    <script>
+        function increaseQuantity() {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            if (currentQuantity < quantityInput.max) {
+                quantityInput.value = currentQuantity + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            if (currentQuantity > 1) {
+                quantityInput.value = currentQuantity - 1;
+            }
+        }
+    </script>
+</body>
+</html>

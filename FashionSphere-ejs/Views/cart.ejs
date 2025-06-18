@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/image/img.png" class="header_logo" alt="FashionSphere Logo">
+            <span class="FashionSphere">FashionSphere</span>
+            <nav class="navbar">
+                <a href="/Home"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-box-open"></i> Product</a>
+                    <div class="dropdown-content">
+                        <a href="/mens">Men's Wear</a>
+                        <a href="/womens">Women's Wear</a>
+                        <a href="/accessories">Accessories</a>
+                    </div>
+                </div>
+                <a href="/cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+                <a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <h2 class="panier">Votre Panier</h2>
+    
+        <% if (cart && cart.Items.length > 0) { %>
+            <div class="row">
+                <% cart.Items.forEach(item => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img class="card-img-top" src="/image/<%= item.ProductId.Photo %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= item.ProductId.Name %></h5>
+                                <p class="card-text"><%= item.ProductId.Description %></p>
+                                <p class="card-text">Prix: $<%= item.ProductId.Prix %></p>
+                                <p class="card-text">Quantité: <%= item.Quantity %></p>
+                                <form action="/cart/<%= item._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger">Retirer du Panier</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+    
+            <div class="mt-4 text-center">
+                <h4 class="text-muted">Total : $<%= cart.TotalPrice %></h4>
+                <a href="/paiement" class="btn btn-success custom-btn">Passer à la caisse</a>
+            </div>
+            
+        <% } else { %>
+            <div class="alert alert-warning">
+                Votre panier est vide.
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

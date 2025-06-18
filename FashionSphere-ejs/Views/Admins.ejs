@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - FashionSphere</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/users.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/image/img.png" class="header_logo" alt="FashionSphere Logo">
+            <span class="FashionSphere">FashionSphere</span>
+            <nav class="navbar">
+                <a href="/Admins"><i class="fas fa-user-shield"></i> Admin</a>
+                <a href="/Users"><i class="fas fa-users"></i> Users</a>
+                <a href="/Products"><i class="fas fa-box-open"></i> Products</a>
+                <a href="/login"><i class="fas fa-sign-in-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <a href="/add_admin" style="text-decoration: none;"><button class="add-btn">Add a new admin</button></a>
+
+    <section>
+        <div class="users-container">
+            <% if (admins && admins.length > 0) { %>
+                <% admins.forEach(admin => { %>
+                    <div class="user-item">
+                        <p>Username: <%= admin.Username %></p>
+                        <p>Password: <%= admin.Password %></p>
+                        <div class="user-actions">
+                            <a href="/edit_admin/<%= admin._id %>"><button class="edit-btn">Edit</button></a>
+                            <a href="/delete_admin/<%= admin._id %>"><button class="delete-btn">Delete</button></a>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p class="notfound">No admins found.</p>
+            <% } %>
+        </div>
+    </section>
+</body>
+</html>

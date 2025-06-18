@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body class="background">
+
+    <section class="logo-section">
+        <img src="/image/img.png" class="logo">
+        <h2>Admin area</h2>
+    </section>
+
+    <section class="section">
+        <form action="/loginadmin" method="post" >
+            <label for="Username">Username</label> <br>
+            <input type="text" name="Username" id="Username" required> <br><br>
+
+            <label for="Password">Password</label> <br>
+            <input type="password" name="Password" id="Password" required> <br><br>
+
+            <div class="message">
+                <% if (errorMessage) { %>
+                    <p class="error-message"><%= errorMessage %></p>
+                <% } %>
+            </div> 
+
+            <input type="submit" class="button0" value="Login"><br><br>
+        </form>
+        <a href="/login" class="back">back to login</a>
+    </section>
+
+</body>
+</html>
